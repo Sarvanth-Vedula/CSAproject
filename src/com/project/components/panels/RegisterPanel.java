@@ -20,9 +20,14 @@ public class RegisterPanel extends JPanel {
     static JButton btnPc = new JButton("LD");
 
     public static void incrementPC() {
-        String newPC = HexParser.inttoHexString(Integer.parseInt(pc.getText(), 16)+1, 3);
+        String newPC = HexParser.inttoHexString(Integer.parseInt(pc.getText(), 16)+2, 3);
         pc.setText(newPC);
     }
+    
+//    public static void incrementMAR() {
+//        String newMAR = HexParser.inttoHexString(Integer.parseInt(mar.getText(), 16)+1, 3);
+//        pc.setText(newMAR);
+//    }
 
 
     public RegisterPanel(Color bgcolor) {
@@ -36,6 +41,8 @@ public class RegisterPanel extends JPanel {
         // Add PC text field and label
         this.add(new JLabel("PC "));
         pc.setText("000");
+        pc.setEditable(false);
+
         this.add(pc);
         this.add(btnPc);
 
@@ -43,12 +50,16 @@ public class RegisterPanel extends JPanel {
         //Add MBR text field and label
         this.add(new JLabel("MBR "));
         mbr.setText("0000");
+        mbr.setEditable(false);
+
         this.add(mbr);
         this.add(btnMbr);
 
         //Add MAR text field and label
         this.add(new JLabel("MAR "));
         mar.setText("000");
+        mar.setEditable(false);
+
         this.add(mar);
         btnMar.addActionListener(ae -> {
             String marAddress = String.format("%" + 4 + "s", mar.getText()).replace(' ', '0');

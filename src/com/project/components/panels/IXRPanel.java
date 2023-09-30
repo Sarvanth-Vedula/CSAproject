@@ -56,6 +56,10 @@ public class IXRPanel extends JPanel {
         ixr1textField.setText("0000");
         ixr2textField.setText("0000");
         ixr3textField.setText("0000");
+        ixr1textField.setEditable(false);
+        ixr2textField.setEditable(false);
+        ixr3textField.setEditable(false);
+
 
 
 

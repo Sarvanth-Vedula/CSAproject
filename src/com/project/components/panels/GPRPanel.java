@@ -30,6 +30,7 @@ public class GPRPanel extends JPanel {
     public static void setGpr0textField(String text) {
         regmap.setValue("GPR0", text);
         gpr0textField.setText(text);
+        
     }
 
 
@@ -60,6 +61,10 @@ public class GPRPanel extends JPanel {
         gpr1textField.setText("0000");
         gpr2textField.setText("0000");
         gpr3textField.setText("0000");
+        gpr0textField.setEditable(false);
+        gpr1textField.setEditable(false);
+        gpr2textField.setEditable(false);
+        gpr3textField.setEditable(false);
 
         gpr0btn.addActionListener(ae -> {
             String gpr0textFieldValue = gpr0textField.getText();

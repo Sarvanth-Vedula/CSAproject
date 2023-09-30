@@ -65,9 +65,19 @@ public class ControlPanel extends JPanel {
         this.add(initButton);
 
         // Text field for SS
-        this.add(new JLabel("SS"));
-        JTextField ssTextField = new BinTextField(1);
-        this.add(ssTextField);
+        JButton ssButton = new JButton("SS");
+        this.add(ssButton);
+        
+        ssButton.addActionListener(ae -> {
+            String opcode = operationText.getText();
+            String reg = gprTextField.getText();
+            String ireg = ixrTextField.getText();
+            String ibit = iTextField.getText();
+            String address = addressTextField.getText();
+
+            InstructionParser.parse(opcode, reg, ireg, ibit, address);
+            RegisterPanel.incrementPC();
+        });
 
         // Button for Run
         JButton runButton = new JButton("Run");
